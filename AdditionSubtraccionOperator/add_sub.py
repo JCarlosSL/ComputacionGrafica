@@ -54,8 +54,7 @@ def Add(imgA,imgB):
 	return matrixOut
 
 
-##### ejercicio 3 perra 
-
+##### ejercicio 3
 addressA = 'sub_1.jpg'
 addressB = 'sub_2.jpg'
 imgA = cv.imread(addressA,0) 
@@ -69,7 +68,8 @@ plt.imshow(OutPut2,'gray')
 plt.show()
 
 
-##### ejercicio 4 recontra perraaa
+##### ejercicio 4
+
 """
 addressA = 'sub_10.jpg'
 addressB = 'sub_11.jpg'
