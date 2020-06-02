@@ -11,11 +11,11 @@ def plotShow(img,newimg):
     plt.show()
 
 #procesamiento hist5
-img = cv.imread('hist5.jpg',0)
+img = cv.imread('question_1.png',0)
 HE = HisEqual(img)
 newimg = HE.Equalization()
 plotShow(img,newimg)
-
+"""
 #procesamiento hist6
 img1 = cv.imread('hist6.jpg',0)
 HE1 = HisEqual(img1)
@@ -31,4 +31,4 @@ plotShow(img3,newimg3)
 
 newimgmask,imgmask = HE3.EqualizationMask([210,160],80,60)
 
-plotShow(imgmask,newimgmask)
+plotShow(imgmask,newimgmask)"""
