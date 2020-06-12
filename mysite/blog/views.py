@@ -113,6 +113,7 @@ def post_save(request,pk):
     ropen=open(direccion[1:],'rb')
     post2.imagen.save(direccion[14:],File(ropen),save=True)
     post2.save()
+    Post1.objects.all().delete()
     return redirect('post_detail',pk=post2.pk)
 
 def post_show(request,pk,pk1):
