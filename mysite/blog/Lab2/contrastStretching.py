@@ -10,26 +10,33 @@ class ConstS:
         self.img=_img
         self.c=0
         self.d=255
+        self.v=False
 
     def Formula(self,Fxy):
         return (((Fxy-self.c)*((self.b-self.a)/(self.d-self.c)))+self.a)%256
 
     def Stretch(self):
-        rows,columns=self.img.shape
-        newimg=[[] for i in range(rows)]
-        for i in range(rows):
-            for j in range(columns):
-                pixel=0
-                if(self.c < self.img[i,j] < self.d):
-                    pixel=self.img[i,j]
-                else:
-                    pixel=((self.d-self.c)/2)+self.c
-                newimg[i].append(self.Formula(pixel))
-        return np.array(newimg)
+    
+    	if self.v==False:
+    		self.c=np.min(self.img)
+    		self.d=np.max(self.img)
+    	
+    	rows,columns=self.img.shape
+    	newimg=[[] for i in range(rows)]
+    	for i in range(rows):
+    		for j in range(columns):
+    			pixel=0
+    			if(self.c < self.img[i,j] < self.d):
+    				pixel=self.img[i,j]
+    			else:
+    				pixel=((self.d-self.c)/2)+self.c
+    			newimg[i].append(self.Formula(pixel))
+    	return np.array(newimg)
 
     def CDlimit(self,l=0):
         self.hist,bins =np.histogram(self.img.flatten(),256,[0,256])
         
+        self.v=True
         self.c=np.min(self.img)
         self.d=np.max(self.img)
 

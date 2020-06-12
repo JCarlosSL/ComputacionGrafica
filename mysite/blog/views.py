@@ -178,10 +178,13 @@ def post_contrast(request,pk):
             data = CS(img)
             
             d=15
+            verbose=False
             if post1.limite_a:
             	d=int(post1.limite_a)
+            	verbose=True
             
-            data.CDlimit(d)
+            if verbose:
+            	data.CDlimit(d)
             newimg = data.Stretch()
             
             name = 'images/scale_'+post.imagen.name[7:]
@@ -405,7 +408,7 @@ def post_adicion(request,pk):
             post1.save()
 
             direccion = post.imagen.url
-            img = cv.imread(direccion[1:],0)  
+            img = cv.imread(direccion[1:])  
             
             verbose=False
             r=1
@@ -414,7 +417,7 @@ def post_adicion(request,pk):
             	r=int(post1.limite_a)
             if post1.imagen:
             	direc = post1.imagen.url
-            	img1 = cv.imread(direc[1:],0)
+            	img1 = cv.imread(direc[1:])
             	img,img1 = resize(img,img1)
             	
             data = AO(img)
@@ -454,7 +457,7 @@ def post_sustraccion(request,pk):
             post1.save()
 
             direccion = post.imagen.url
-            img = cv.imread(direccion[1:],0)  
+            img = cv.imread(direccion[1:])  
             
             verbose=False
             r=1
@@ -463,8 +466,7 @@ def post_sustraccion(request,pk):
             	r=int(post1.limite_a)
             if post1.imagen:
             	direc = post1.imagen.url
-            	img1 = cv.imread(direc[1:],0)
-            	img,img1 = resize(img,img1)
+            	img1 = cv.imread(direc[1:])
             	
             data = SO(img)
             if verbose:
@@ -512,7 +514,7 @@ def post_multiplicacion(request,pk):
             	r=int(post1.limite_a)
             if post1.imagen:
             	direc = post1.imagen.url
-            	img1 = cv.imread(direc[1:],0)
+            	img1 = cv.imread(direc[1:])
             	img,img1 = resize(img,img1)
             	
             data = MO(img)
