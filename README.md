@@ -1,2 +1,3 @@
 # ComputacionGrafica
-practica 5 compu grafica csunsa
+
+Mysite es la pagina web 
