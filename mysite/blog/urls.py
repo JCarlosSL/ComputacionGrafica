@@ -22,8 +22,8 @@ urlpatterns = [
         path('post/<int:pk>/multiplicacion/', views.post_multiplicacion, name='post_multiplicacion'),
         path('post/<int:pk>/division/', views.post_division, name='post_division'),
         path('post/<int:pk>/blending/', views.post_blending, name='post_blending'),
-        path('post/<int:pk>/invertlognot/', views.post_invert_log_not, name='post_invert_log_not'),
-        path('post/<int:pk>/logandnand/', views.post_log_and_nand, name='post_log_and_nand'),
-        path('post/<int:pk>/logornor/', views.post_log_or_nor, name='post_log_or_nor'),
-        path('post/<int:pk>/log_xor_xnor/', views.post_log_xor_xnor, name='post_log_xor_xnor'),
+        path('post/<int:pk>/not/', views.post_not, name='post_not'),
+        path('post/<int:pk>/and/', views.post_and, name='post_and'),
+        path('post/<int:pk>/or/', views.post_or, name='post_or'),
+        path('post/<int:pk>/xor/', views.post_xor, name='post_xor'),
 ]

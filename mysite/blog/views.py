@@ -19,6 +19,7 @@ from .Addition.Addition import AdditionOperator as AO
 from .Blending.Blending import blendingOperator as BO
 from .Division.Division import divisionOperator as DO
 from .multiplication.Multiplication import MultiplicationOperator as MO
+from .LogicoOperator.logicoOperator import Imagen as LO
 # Create your views here.
 
 def resize(img1,img2):
@@ -124,7 +125,7 @@ def post_show(request,pk,pk1):
         
 def post_thresholding(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="THRESHOLDING"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
@@ -140,7 +141,7 @@ def post_thresholding(request,pk):
             if post1.limite_a:
             	l=int(post1.limite_a)
             if post1.limite_b:
-           		r=int(post1.limite_b)
+                r=int(post1.limite_b)
             
             newimg = data.thresholding(l,r)
             name = 'images/scale_'+post.imagen.name[7:]
@@ -164,7 +165,7 @@ def post_thresholding(request,pk):
         
 def post_contrast(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="CONTRAST STRETCHING"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
@@ -204,7 +205,7 @@ def post_contrast(request,pk):
         
 def post_equalizer(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="ECUALIZADOR DE HISTOGRAMA"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
@@ -237,7 +238,7 @@ def post_equalizer(request,pk):
         
 def post_logaritmo(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="LOGARITMO"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
@@ -275,7 +276,7 @@ def post_logaritmo(request,pk):
         
 def post_raiz(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="RAIZ"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
@@ -312,7 +313,7 @@ def post_raiz(request,pk):
         
 def post_exponencial(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="EXPONENCIAL"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
@@ -352,7 +353,7 @@ def post_exponencial(request,pk):
 
 def post_raizpower(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="RAISE TO POWER"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
@@ -394,13 +395,14 @@ def post_raizpower(request,pk):
 
 def post_adicion(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="ADICION"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
             post1=form.save(commit=False)
             post1.author = request.user
             post1.post=post
+            post1.save()
 
             direccion = post.imagen.url
             img = cv.imread(direccion[1:],0)  
@@ -412,7 +414,7 @@ def post_adicion(request,pk):
             	r=int(post1.limite_a)
             if post1.imagen:
             	direc = post1.imagen.url
-            	img1 = cv.imread('media/images/'+direc[7:],0)
+            	img1 = cv.imread(direc[1:],0)
             	img,img1 = resize(img,img1)
             	
             data = AO(img)
@@ -442,13 +444,14 @@ def post_adicion(request,pk):
         
 def post_sustraccion(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="SUSTRACCION"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
-        if form.is_valid():
+        if form.is_valid(): 
             post1=form.save(commit=False)
             post1.author = request.user
             post1.post=post
+            post1.save()
 
             direccion = post.imagen.url
             img = cv.imread(direccion[1:],0)  
@@ -460,7 +463,7 @@ def post_sustraccion(request,pk):
             	r=int(post1.limite_a)
             if post1.imagen:
             	direc = post1.imagen.url
-            	img1 = cv.imread('media/images/'+direc[7:],0)
+            	img1 = cv.imread(direc[1:],0)
             	img,img1 = resize(img,img1)
             	
             data = SO(img)
@@ -490,13 +493,14 @@ def post_sustraccion(request,pk):
         
 def post_multiplicacion(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="MULTIPLICACION"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
             post1=form.save(commit=False)
             post1.author = request.user
             post1.post=post
+            post1.save()
 
             direccion = post.imagen.url
             img = cv.imread(direccion[1:])  
@@ -508,7 +512,7 @@ def post_multiplicacion(request,pk):
             	r=int(post1.limite_a)
             if post1.imagen:
             	direc = post1.imagen.url
-            	img1 = cv.imread('media/images/'+direc[7:],0)
+            	img1 = cv.imread(direc[1:],0)
             	img,img1 = resize(img,img1)
             	
             data = MO(img)
@@ -538,14 +542,14 @@ def post_multiplicacion(request,pk):
         
 def post_division(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="DIVISION"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
             post1=form.save(commit=False)
             post1.author = request.user
             post1.post=post
-
+            post1.save()
             direccion = post.imagen.url
             img = cv.imread(direccion[1:],0)  
             
@@ -556,7 +560,7 @@ def post_division(request,pk):
             	r=int(post1.limite_a)
             if post1.imagen:
             	direc = post1.imagen.url
-            	img1 = cv.imread('media/images/'+direc[7:],0)
+            	img1 = cv.imread(direc[1:],0)
             	img,img1 = resize(img,img1)
             	
             data = DO(img)
@@ -586,14 +590,14 @@ def post_division(request,pk):
         
 def post_blending(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="BLENDING"
     if request.method == "POST":
-        form = Post1Form(request.POST,request.FILES)
+        form = Post1Form(request.POST,request.FILES) 
         if form.is_valid():
             post1=form.save(commit=False)
             post1.author = request.user
             post1.post=post
-
+            post1.save()
             direccion = post.imagen.url
             img = cv.imread(direccion[1:])
             
@@ -603,7 +607,7 @@ def post_blending(request,pk):
             	verbose=True
             	r=float(post1.limite_a)
             direc = post1.imagen.url
-            img1 = cv.imread('media/images/'+direc[7:])
+            img1 = cv.imread(direc[1:])
             img,img1 = resize(img,img1)
             	
             data = BO(img)
@@ -629,9 +633,9 @@ def post_blending(request,pk):
         'post':post,
         'pageTitle':pageTitle})
         
-def post_invert_log_not(request,pk):
+def post_not(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="NOT"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
@@ -641,8 +645,8 @@ def post_invert_log_not(request,pk):
 
             direccion = post.imagen.url
             img = cv.imread(direccion[1:],0)  
-            data = PO(img)
-            newimg = data.contrastStretching()
+            data = LO(img)
+            newimg = data.notFunction()
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
@@ -662,20 +666,24 @@ def post_invert_log_not(request,pk):
         'post':post,
         'pageTitle':pageTitle})
         
-def post_log_and_nand(request,pk):
+def post_and(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="AND"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
             post1=form.save(commit=False)
             post1.author = request.user
             post1.post=post
+            post1.save()
 
             direccion = post.imagen.url
-            img = cv.imread(direccion[1:],0)  
-            data = PO(img)
-            newimg = data.contrastStretching()
+            img = cv.imread(direccion[1:])  
+            data = LO(img)
+            direc = post1.imagen.url
+            img1 = cv.imread(direc[1:])
+
+            newimg = data.andFunction(img1)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
@@ -695,20 +703,24 @@ def post_log_and_nand(request,pk):
         'post':post,
         'pageTitle':pageTitle})
         
-def post_log_or_nor(request,pk):
+def post_or(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="OR"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
             post1=form.save(commit=False)
             post1.author = request.user
             post1.post=post
+            post1.save()
 
             direccion = post.imagen.url
-            img = cv.imread(direccion[1:],0)  
-            data = PO(img)
-            newimg = data.contrastStretching()
+            img = cv.imread(direccion[1:])  
+            data = LO(img)
+            direc = post1.imagen.url
+            img1 = cv.imread(direc[1:])
+
+            newimg = data.orFunction(img1)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
@@ -728,20 +740,25 @@ def post_log_or_nor(request,pk):
         'post':post,
         'pageTitle':pageTitle})
         
-def post_log_xor_xnor(request,pk):
+def post_xor(request,pk):
     post = get_object_or_404(Post,pk=pk)
-    pageTitle="scale"
+    pageTitle="XOR"
     if request.method == "POST":
         form = Post1Form(request.POST,request.FILES)
         if form.is_valid():
             post1=form.save(commit=False)
             post1.author = request.user
             post1.post=post
+            post1.save()
+
 
             direccion = post.imagen.url
-            img = cv.imread(direccion[1:],0)  
-            data = PO(img)
-            newimg = data.contrastStretching()
+            img = cv.imread(direccion[1:])  
+            data = LO(img)
+            direc = post1.imagen.url
+            img1 = cv.imread(direc[1:])
+
+            newimg = data.xorFunction(img1)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
