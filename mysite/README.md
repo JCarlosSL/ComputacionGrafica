@@ -1,4 +1,4 @@
-Mysite es una app para procesamiento de imagenes usando los algoritmos de Thresholding, ContrastStretch, Logaritmo, Exponencial, entre otros.
+Mysite es una pagina web para procesamiento de imagenes usando los algoritmos de Thresholding, ContrastStretch, Logaritmo, Exponencial, entre otros.
 
 ## Requerimientos
 ```text
