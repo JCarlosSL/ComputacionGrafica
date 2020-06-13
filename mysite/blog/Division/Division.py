@@ -12,6 +12,8 @@ class divisionOperator:
         return np.divide(p,q).astype(np.uint8)
 
     def divisionImg(self,imgs):
+    	self.img=self.img.astype(np.uint8)
+    	imgs=imgs.astype(np.uint8)
     	newimg = [ [] for i in range(self.rows)]
     	minimo=99999
     	maximo=0
@@ -26,8 +28,7 @@ class divisionOperator:
     	return newimg
 
     def divisionC(self,c=1):
-    
-    
+    	self.img=self.img.astype(np.uint8)
     	newimg = [ [] for i in range(self.rows)]
     	for i in range(self.rows):
     		for j in range(self.cols):

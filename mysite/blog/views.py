@@ -146,14 +146,15 @@ def post_thresholding(request,pk):
             newimg = data.thresholding(l,r)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -189,14 +190,15 @@ def post_contrast(request,pk):
             
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -222,14 +224,15 @@ def post_equalizer(request,pk):
             newimg = data.Equalization()
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -261,13 +264,14 @@ def post_logaritmo(request,pk):
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
+
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -298,13 +302,14 @@ def post_raiz(request,pk):
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
+
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -337,14 +342,15 @@ def post_exponencial(request,pk):
             newimg = data.expoOperator(b,c)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -378,14 +384,15 @@ def post_raizpower(request,pk):
             newimg = data.raiseOperator(b,c)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -428,14 +435,15 @@ def post_adicion(request,pk):
             	
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -477,13 +485,14 @@ def post_sustraccion(request,pk):
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
+
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -505,7 +514,7 @@ def post_multiplicacion(request,pk):
             post1.save()
 
             direccion = post.imagen.url
-            img = cv.imread(direccion[1:])  
+            img = cv.imread(direccion[1:],1)  
             
             verbose=False
             r=1
@@ -514,7 +523,7 @@ def post_multiplicacion(request,pk):
             	r=int(post1.limite_a)
             if post1.imagen:
             	direc = post1.imagen.url
-            	img1 = cv.imread(direc[1:])
+            	img1 = cv.imread(direc[1:],1)
             	img,img1 = resize(img,img1)
             	
             data = MO(img)
@@ -526,13 +535,14 @@ def post_multiplicacion(request,pk):
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
+
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -574,13 +584,14 @@ def post_division(request,pk):
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
+
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -618,14 +629,15 @@ def post_blending(request,pk):
 
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -651,14 +663,15 @@ def post_not(request,pk):
             newimg = data.notFunction()
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -688,14 +701,15 @@ def post_and(request,pk):
             newimg = data.andFunction(img1)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -725,14 +739,15 @@ def post_or(request,pk):
             newimg = data.orFunction(img1)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
+            post1.histogram.save('hist.png',File(hopen),save=True)
             post1.save()
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
@@ -763,15 +778,15 @@ def post_xor(request,pk):
             newimg = data.xorFunction(img1)
             name = 'images/scale_'+post.imagen.name[7:]
             cv.imwrite('media/'+name,newimg)
+            
+            plt.hist(newimg.ravel(),256,[0,256])
+            plt.savefig('media/images/hist.png')
 
-            nameh = 'images/sc_h'+post.imagen.name[7:]
-            cv.imwrite('media/'+nameh,newimg)
             ropen = open('media/'+name,'rb')
-            hopen = open('media/'+nameh,'rb')
+            hopen = open('media/images/hist.png','rb')
 
             post1.result.save('scale_'+post.imagen.name[7:],File(ropen),save=True)
-            post1.histogram.save('sc_h'+post.imagen.name[7:],File(hopen),save=True)
-            post1.save()
+            post1.histogram.save('hist.png',File(hopen),save=True)
             return redirect('post_show',pk=post.pk,pk1=post1.pk)
 
     else:
