@@ -3,10 +3,14 @@
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
+                
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav">
                         <li> <a class="waves-effect waves-dark" href="{% url 'post_thresholding' pk=post.pk %}" aria-expanded="false">
                         	<span class="hide-menu">Thresholding</span></a>
+                        </li>
+                        <li> <a class="waves-effect waves-dark" href="{% url 'post_thresholdAdapted' pk=post.pk %}" aria-expanded="false">
+                        	<span class="hide-menu">ThresholdAdapted</span></a>
                         </li>
                         
                         <li> <a class="waves-effect waves-dark" href="{% url 'post_contrast' pk=post.pk %}" aria-expanded="false">

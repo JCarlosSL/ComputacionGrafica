@@ -11,6 +11,7 @@ urlpatterns = [
         path('post/<int:pk>/save/',views.post_save,name='post_save'),
         path('post/<int:pk>/scale/', views.post_scale, name='post_scale'),
         path('post/<int:pk>/thresholding/', views.post_thresholding, name='post_thresholding'),
+        path('post/<int:pk>/thresholdAdapted/', views.post_thresholdAdapted, name='post_thresholdAdapted'),
         path('post/<int:pk>/contrast/', views.post_contrast, name='post_contrast'),
         path('post/<int:pk>/equalizer/', views.post_equalizer, name='post_equalizer'),
         path('post/<int:pk>/logaritmo/', views.post_logaritmo, name='post_logaritmo'),

@@ -9,11 +9,11 @@ class divisionOperator:
         self.d=255
 
     def div(self,p,q):
-        return np.divide(p,q).astype(np.uint8)
+        return np.divide(p,q)
 
     def divisionImg(self,imgs):
-    	self.img=self.img.astype(np.uint8)
-    	imgs=imgs.astype(np.uint8)
+    	self.img=self.img.astype(int)
+    	imgs=imgs.astype(int)
     	newimg = [ [] for i in range(self.rows)]
     	minimo=99999
     	maximo=0
@@ -23,12 +23,12 @@ class divisionOperator:
     				minimo = self.img[i,j] / imgs[i,j]
     			if(maximo < self.img[i,j] / imgs[i,j]):
     				maximo = self.img[i,j] / imgs[i,j]
-    			newimg[i].append((self.img[i,j]/imgs[i,j]).astype(np.uint8))
+    			newimg[i].append((self.img[i,j]/imgs[i,j]))
     	newimg=self.rescaling(minimo,maximo,np.array(newimg))
     	return newimg
 
     def divisionC(self,c=1):
-    	self.img=self.img.astype(np.uint8)
+    	self.img=self.img.astype(int)
     	newimg = [ [] for i in range(self.rows)]
     	for i in range(self.rows):
     		for j in range(self.cols):
@@ -41,5 +41,5 @@ class divisionOperator:
         newimg=[[] for i in range(self.rows)]
         for i in range(self.rows):
         	for j in range(self.cols):
-        		newimg[i].append(self.funcrescaling(mini,maxi,img1[i,j]).astype(np.uint8))
+        		newimg[i].append(self.funcrescaling(mini,maxi,img1[i,j]))
         return np.array(newimg)

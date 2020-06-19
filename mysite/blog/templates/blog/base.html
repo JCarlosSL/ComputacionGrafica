@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
         <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-      <!--  <link rel="stylesheet" href="{% static 'css/blog.css' %}">-->
       <link href="{% static 'assets/node_modules/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'assets/node_modules/perfect-scrollbar/css/perfect-scrollbar.css' %}" rel="stylesheet">
     <!-- This page CSS -->
@@ -29,15 +28,15 @@
                 <div class="navbar-header">
                     <a class="navbar-brand" href="">
                         <!-- Logo icon --><b>
-                            <img src="assets/images/logo-icon.png" alt="Home" class="dark-logo" />
+                            <img src="{% static 'assets/images/logo-icon.png' %}" alt="Home" class="dark-logo" />
                             <!-- Light Logo icon -->
-                            <img src="assets/images/logo-light-icon.png" alt="Home" class="light-logo" />
+                            <img src="{% static 'assets/images/logo-light-icon.png' %}" alt="Home" class="light-logo" />
                         </b>
                         <span>
                          <!-- dark Logo text -->
-                         <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo" />
+                         <img src="{% static 'assets/images/logo-text.png' %}" alt="homepage" class="dark-logo" />
                          <!-- Light Logo text -->    
-                         <img src="assets/images/logo-light-text.png" class="light-logo" alt="homepage" /></span>
+                         <img src="{% static 'assets/images/logo-light-text.png' %}" class="light-logo" alt="homepage" /></span>
                     </a>
                 </div>
                 

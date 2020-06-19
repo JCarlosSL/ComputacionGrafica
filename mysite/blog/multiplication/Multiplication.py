@@ -8,24 +8,35 @@ class MultiplicationOperator:
         self.rows=_img.shape[0]
         self.cols=_img.shape[1]
         self.newimg = [ [] for i in range(self.rows)]
-
     def mult(self,p,q):
-        return np.multiply(p,q).astype(np.uint8)
+        return np.multiply(p,q)
 
     def multiplicacionImg(self,imgs):
-    	self.img=self.img.astype(int)
-    	imgs=imgs.astype(int)
-    	for i in range(self.rows):
-    		for j in range(self.cols):
-    			self.newimg[i].append(self.mult(self.img[i,j],imgs[i,j]))
-    	return np.array(self.newimg)
+        self.img = self.img.astype(int)
+        for i in range(self.rows):
+            for j in range(self.cols):
+                self.newimg[i].append(self.mult(self.img[i,j],imgs[i,j]))
+
+        imgn = np.array(self.newimg)
+        imgn[np.where(imgn > 255)] = 255
+        return imgn.astype(np.uint8)
 
     def MultiplicacionC(self,c=1):
-    	self.img=self.img.astype(np.uint8)
-    	for i in range(self.rows):
-    		for j in range(self.cols):
-    			self.newimg[i].append((self.img[i,j]*c))
-    	return np.array(self.newimg).astype(np.uint8)
+        self.img =self.img.astype(int)
+        for i in range(self.rows):
+            for j in range(self.cols):
+                self.newimg[i].append(self.mult(self.img[i,j],c))
+        
+        imgn = np.array(self.newimg)
+        imgn[np.where(imgn > 255)] = 255
+        return imgn.astype(np.uint8)
+"""
+img = cv.imread('mul_4.jpg')
+MO = MultiplicationOperator(img)
 
+imgout = MO.MultiplicacionC(3)
+print(imgout)
+cv.imwrite('imgout.png',imgout)
+"""
 
 
