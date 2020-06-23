@@ -1,12 +1,17 @@
 
-<aside class="left-sidebar">
+<aside id="left-panel" class="left-sidebar">
             <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li> <a class="waves-effect waves-dark" href="{% url 'post_thresholding' pk=post.pk %}" aria-expanded="false">
+                <nav class="sidebar-nav nav">
+                   
+            <div id="main-menu" class="main-menu collapse navbar-collapse">   
+            		<ul id="sidebarnav ">
+                        
+                        
+                        
+                         <li> <a class="waves-effect waves-dark" href="{% url 'post_thresholding' pk=post.pk %}" aria-expanded="false">
                         	<span class="hide-menu">Thresholding</span></a>
                         </li>
                         <li> <a class="waves-effect waves-dark" href="{% url 'post_thresholdAdapted' pk=post.pk %}" aria-expanded="false">
@@ -75,6 +80,7 @@
                     </ul>
                     <div class="text-center m-t-30">
                         <a href="https://wrappixel.com/templates/adminwrap/" class="btn waves-effect waves-light btn-info hidden-md-down"> Upgrade to Pro</a>
+                    </div>
                     </div>
                 </nav>
                 <!-- End Sidebar navigation -->

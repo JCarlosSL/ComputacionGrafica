@@ -7,59 +7,60 @@
 <div class="page-wrapper">
 	<div class="container-fluid">
 
-
-
 	<div class="row page_titles">
-	<h2 rel=stylesheet> {{ pageTitle}} </h2> 
+	<h2 rel=stylesheet> {{ pageTitle }} </h2> 
 	</div>
 	
 	<div class="row">
 		<div class="col-lg-6">
-              <div class="card shadow mb-4">
+           	<div class="card shadow mb-4">
                 <div class="card-header py-3">
                   <h6 class="m-0 font-weight-bold text-primary">Imagen Original</h6>
                 </div>
-                <div class="card-body">
-                  <div style="padding: 20px;">
-                    <center>
+            <div class="card-body">
+            <div style="padding: 20px;">
+            <center>
 			{% if post.imagen %}
 			
 	    	<img src="{{ post.imagen.url}}" style="max-height: 100%; max-width: 100%">
         	{% endif %}
-			  </center>
-                  </div>
-                </div>
-              </div>
+			 </center>
+             </div>
+             </div>
+             </div>
 		</div>
 
 		<div class="col-lg-6">
-				<div class="card shadow mb-4">
-				<div class="card-body">
-				<div style="padding: 20px;">
-                     <center>
-    <div class="card">
-    	<div class="card-body">
-    	<form method="POST" enctype="multipart/form-data" class="post-form form-horizontal form-material">
-    	 <div class="form-group">
-			{% csrf_token %}
-    	    {{ form.as_p }}
-    	  </div>
+			<div class="card shadow mb-4">
+				<div class="card-header py-3">
+                  <h6 class="m-0 font-weight-bold text-primary">{{ pageTitle }}</h6>
+                </div>
+			<div class="card-body">
+			<div style="padding: 20px;">
+            <center>
+    		<div class="card">
+    		<!--<div class="card-body">-->
+    		<form method="POST" enctype="multipart/form-data" class="post-form form-horizontal form-material">
+    	 	<div class="form-group">
+				{% csrf_token %}
+    	    	{{ form.as_p }}
+    	  	</div>
     	  
-    	  <div class="form-group">
-    	  <li class="nav-item dropdown u-pro">
-    	    <button type="submit" class="save btn btn-default btn-info waves-effect waves-dark hidden-sm-down">Calcular Operacion</button>
-    	  </li>
-    	  </div>
-    	  
-    	</form>
+    	  	<li class="nav-item dropdown u-pro">
+    	  	<button id="payment-button" type="submit" class="save btn btn-lg btn-info btn-block waves-effect waves-dark hidden-sm-down">
+            <span id="payment-button-amount">Calcular Operación</span>
+            </button>
+    	  	</li>
+    	  	<!--</div>-->
+    		</form>
     	</div>
     </div>
     
     </center>
-                  </div>
-				</div>
-				</div>
-		</div>
+    </div>
+	</div>
+	</div>
+	</div>
 	</div>
 	
 	</div>
