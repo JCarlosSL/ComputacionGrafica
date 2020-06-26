@@ -35,8 +35,10 @@ class affine:
         return np.matrix([[p[0],0,0],[0,p[1],0]])
 
     def Mrotate(self,theta=45,p=[0,0]):
-        cos = np.cos(theta)
-        sen = np.sin(theta)
+        r = 2*np.pi
+        theta1 = (r/360)*theta
+        cos = np.cos(theta1)
+        sen = np.sin(theta1)
         return np.matrix([[cos,sen,(1-cos)*p[0]-sen*p[1]],
                 [-sen,cos,sen*p[0]+(1-sen)*p[1]]])
 

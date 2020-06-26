@@ -18,11 +18,16 @@ M = g.Mscale([0.9,1.1])
 newimg = g.warpAffine(img,M,int(rows*0.9),int(cols*1.1))
 cv.imwrite('news1.png',newimg)
 """
-b = abs(np.sin(30)*cols)
-c = abs(np.cos(30)*cols)
 
-b1 = abs(np.sin(60)*rows)
-c1 = abs(np.cos(60)*rows)
+r = 2*np.pi
+
+s = (r/360)*30
+s1 = (r/360)*60
+b = np.sin(s)*cols
+c = np.cos(s)*cols
+b1 = np.sin(s1)*rows
+c1 = np.cos(s1)*rows
+
 ro = int(b+b1)
 co = int(c+c1)
 M = g.Mrotate(30,[cols/2,rows/2])
