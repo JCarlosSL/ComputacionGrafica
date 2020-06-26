@@ -19,6 +19,7 @@ newimg = g.warpAffine(img,M,int(rows*0.9),int(cols*1.1))
 cv.imwrite('news1.png',newimg)
 """
 
+"""
 r = 2*np.pi
 
 s = (r/360)*30
@@ -33,7 +34,7 @@ co = int(c+c1)
 M = g.Mrotate(30,[cols/2,rows/2])
 newimg = g.warpAffine(img,M,ro,co)
 cv.imwrite('news1.png',newimg)
-
+"""
 
 """
 M = g.Mshear([0.2,0.1])
