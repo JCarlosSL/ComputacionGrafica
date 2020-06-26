@@ -1,21 +1,40 @@
 import numpy as np
 import cv2 as cv
 from  affineTransformation import affine as AT 
-
-
+import math
 img = cv.imread('mul_4.jpg')
 rows,cols=img.shape[0],img.shape[1]
 
 g = AT()
 
-#M = g.rotate(270,[c/2,r/2])
+"""
 M = g.Mtranslate([120,100])
-#M = g.shear([0.2,0.1])
-#M = g.scale([1,2])
-newimg = g.warpAffine(img,M,rows,cols)
-
-
+newimg = g.warpAffine(img,M,rows+120,cols+100)
 cv.imwrite('news1.png',newimg)
+"""
+
+"""
+M = g.Mscale([0.9,1.1])
+newimg = g.warpAffine(img,M,int(rows*0.9),int(cols*1.1))
+cv.imwrite('news1.png',newimg)
+"""
+b = abs(np.sin(30)*cols)
+c = abs(np.cos(30)*cols)
+
+b1 = abs(np.sin(60)*rows)
+c1 = abs(np.cos(60)*rows)
+ro = int(b+b1)
+co = int(c+c1)
+M = g.Mrotate(30,[cols/2,rows/2])
+newimg = g.warpAffine(img,M,ro,co)
+cv.imwrite('news1.png',newimg)
+
+
+"""
+M = g.Mshear([0.2,0.1])
+newimg = g.warpAffine(img,M,rows,cols)
+cv.imwrite('news1.png',newimg)
+"""
 
 
 """
