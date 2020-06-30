@@ -40,7 +40,7 @@ class affine:
         cos = np.cos(theta1)
         sen = np.sin(theta1)
         return np.matrix([[cos,sen,(1-cos)*p[0]-sen*p[1]],
-                [-sen,cos,sen*p[0]+(1-sen)*p[1]]])
+                [-sen,cos,sen*p[0]+(1-cos)*p[1]]])
 
     def Mshear(self,p=[0,0]):
         return np.matrix([[1,p[0],0],[p[1],1,0]])
